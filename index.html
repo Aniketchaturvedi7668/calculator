@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cal style</title>
+    <style>
+        table{
+            background-color: chartreuse;
+            border: 1px solid black;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px
+        }
+         input{
+            width: 90%;
+            height: 50px;
+            border: 2px solid black;
+            font-size: larger;
+         }
+
+        
+         button{
+            width: 100%;
+            padding: 20px 40px;
+            background-color: aquamarine;
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        button:hover{
+            background-color: blue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <table id="cal">
+        <tr>
+            <td colspan="3">
+                <input type="text" id="result" placeholder="type a number">
+            </td>
+            <td><button onclick="clea()">C</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="func('1')">1</button></td>
+            <td><button onclick="func('2')">2</button></td>
+            <td><button onclick="func('3')">3</button></td>
+            <td><button onclick="ope('+')">+</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="func('4')">4</button></td>
+            <td><button onclick="func('5')">5</button></td>
+            <td><button onclick="func('6')">6</button></td>
+            <td><button onclick="ope('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="func('7')">7</button></td>
+            <td><button onclick="func('8')">8</button></td>
+            <td><button onclick="func('9')">9</button></td>
+            <td><button onclick="ope('*')">*</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="ope('.')">.</button></td>
+            <td><button onclick="func('0')">0</button></td>
+            <td><button onclick="eop()">=</button></td>
+            <td><button onclick="ope('/')">/</button></td>
+        </tr>
+    </table>
+</body>
+<script>
+    function clea(){
+        
+        let shi=document.getElementById('result').value= " ";
+    }
+    function func(a){
+        let ani=document.getElementById('result').value += a;
+    }
+    function ope(b){
+        let ian=document.getElementById('result').value += b;
+    }
+    function eop(){
+        let d= document.getElementById('result').value;
+        if(d.includes('-')){
+        let y=d.split('-');
+        let x=parseFloat(y[0]);
+        let s=parseFloat(y[1]); 
+        if(x > s || x == s)   
+        {
+          let result=x-s;
+          document.getElementById('result').value = eval(document.getElementById('result').value);
+        } else{
+          alert("enter valid number");
+        } 
+    }else{
+        document.getElementById('result').value = eval(document.getElementById('result').value);
+    }
+     
+        if(d.includes('/')){
+        let y=d.split('/');
+        let x=parseFloat(y[0]);
+        let s=parseFloat(y[1]); 
+        if(x > s || x == s)   
+        {
+          let result=x-s;
+          document.getElementById('result').value = eval(document.getElementById('result').value);
+        } else{
+          alert("enter valid number");
+        } 
+    }else{
+        document.getElementById('result').value = eval(document.getElementById('result').value);
+    }
+        
+    }
+
+</script>
+</html>
